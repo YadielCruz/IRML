@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IRML-CER3D Research Portal — Infrared Spectroscopy meets Machine Learning. Educational modules, research resources, and team information from the IR-ML Lab at UPR Cayey.">
+  <meta name="keywords" content="infrared spectroscopy, machine learning, IR-ML, CER3D, UPR Cayey, chemistry, Jupyter notebooks, educational modules">
+  <meta name="author" content="Yadiel Cruz Ortiz">
+  <meta property="og:title" content="IRML-CER3D Research Portal — IR-ML Lab">
+  <meta property="og:description" content="Integrated educational modules combining infrared spectroscopy and machine learning at UPR Cayey.">
+  <meta property="og:image" content="assets/logo.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>IRML-CER3D Research Portal — IR-ML Lab | UPR Cayey</title>
+  <link rel="icon" href="assets/logo.jpeg" type="image/jpeg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#home" class="nav-brand">
+      <img src="assets/logo.jpeg" alt="IR-ML Lab Logo" class="nav-logo">
+      <div>
+        <span class="nav-title">IR-ML Lab</span>
+        <span class="nav-subtitle" data-i18n="nav_subtitle">IRML-CER3D Research Portal</span>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#modules" data-i18n="nav_modules">Modules</a></li>
+
+      <li><a href="#team" data-i18n="nav_team">Team</a></li>
+      
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <!-- Theme toggle -->
+      <button
+        class="btn-toggle"
+        id="theme-toggle"
+        onclick="toggleTheme()"
+        aria-label="Toggle color theme"
+        title="Toggle theme">
+        <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <span id="theme-label">Light</span>
+      </button>
+
+      <!-- Language toggle -->
+      <button
+        class="btn-toggle lang-toggle"
+        id="lang-toggle"
+        onclick="toggleLang()"
+        aria-label="Switch language"
+        title="Switch language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span id="lang-label">ES</span>
+      </button>
+
+      <!-- Hamburger (mobile) -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════════ -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-particles">
+      <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span data-i18n="hero_badge">UPR Cayey · CER3D Project</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span data-i18n="hero_title_line1">Infrared Spectroscopy</span><br>
+        <span class="highlight" data-i18n="hero_title_line2">meets Machine Learning</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero_subtitle">
+        Integrated educational modules combining infrared spectral analysis with modern machine learning techniques for the CER3D project at the University of Puerto Rico, Cayey.
+      </p>
+
+      <div class="hero-actions">
+        <button
+          class="btn-primary"
+          id="hero-btn-modules"
+          onclick="scrollToSection('modules')"
+          aria-label="Explore modules">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          <span data-i18n="hero_btn_modules">Explore Modules</span>
+        </button>
+
+        <a
+          href="https://github.com/YadielCruz/IRML-CER3D-module-code"
+          target="_blank"
+          rel="noopener"
+          class="btn-secondary"
+          id="hero-btn-github"
+          aria-label="View on GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+          <span data-i18n="hero_btn_github">View on GitHub</span>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-value">6</div>
+          <div class="stat-label" data-i18n="hero_stat1_label">Modules</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">8+</div>
+          <div class="stat-label" data-i18n="hero_stat2_label">Topics</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">CER3D</div>
+          <div class="stat-label" data-i18n="hero_stat3_label">Institution</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" data-i18n="hero_stat3_val">UPR Cayey</div>
+          <div class="stat-label">🇵🇷</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       MODULES SECTION
+  ════════════════════════════════════════════ -->
+  <section id="modules" class="section">
+    <div class="section-header">
+      <p class="section-eyebrow" data-i18n="modules_eyebrow">Learning Resources</p>
+      <h2 class="section-title" data-i18n="modules_title">Educational Modules</h2>
+      <p class="section-desc" data-i18n="modules_desc">
+        Hands-on Jupyter Notebook modules integrating infrared spectroscopy and machine learning.
+      </p>
+    </div>
+
+    <!-- GitHub Banner -->
+    <div class="github-banner animate-fade-up">
+      <div class="github-banner-text">
+        <h3 data-i18n="github_title">Open Source on GitHub</h3>
+        <p data-i18n="github_desc">All modules are open source and freely available on GitHub. Contributions welcome!</p>
+      </div>
+      <div class="github-stats">
+        <div class="github-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+          <span><strong>1+</strong>&nbsp;<span data-i18n="github_notebooks">Notebooks</span></span>
+        </div>
+        <div class="github-stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+          <span data-i18n="github_open">Open Source</span>
+        </div>
+      </div>
+      <a
+        href="https://github.com/YadielCruz/IRML-CER3D-module-code"
+        target="_blank"
+        rel="noopener"
+        class="btn-primary"
+        id="github-repo-btn"
+        aria-label="View GitHub repository">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+        </svg>
+        <span data-i18n="github_btn">View Repository</span>
+      </a>
+    </div>
+
+    <!-- Search & Filters -->
+    <div class="modules-controls animate-fade-up">
+      <div class="search-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+          type="text"
+          class="search-input"
+          id="module-search"
+          data-i18n-placeholder="modules_search_placeholder"
+          placeholder="Search modules..."
+          oninput="handleSearch(event)"
+          aria-label="Search modules">
+      </div>
+      <div class="filters-row">
+        <select
+          class="filter-select"
+          id="filter-level"
+          onchange="handleFilterLevel(event)"
+          aria-label="Filter by level">
+          <option value="" data-i18n="modules_filter_level">All Levels</option>
+          <option value="Beginner" data-i18n="modules_filter_beginner">Beginner</option>
+          <option value="Intermediate" data-i18n="modules_filter_intermediate">Intermediate</option>
+          <option value="Advanced" data-i18n="modules_filter_advanced">Advanced</option>
+        </select>
+        <select
+          class="filter-select"
+          id="filter-status"
+          onchange="handleFilterStatus(event)"
+          aria-label="Filter by status">
+          <option value="" data-i18n="modules_filter_status">All Status</option>
+          <option value="Available" data-i18n="modules_filter_available">Available</option>
+          <option value="Coming Soon" data-i18n="modules_filter_coming">Coming Soon</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Results meta -->
+    <div class="results-meta animate-fade-up">
+      <div class="results-count" id="results-count">
+        <span>6</span> modules
+      </div>
+    </div>
+
+    <!-- Modules Grid -->
+    <div class="modules-grid" id="modules-grid" role="list">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ═══════════════════════════════════════════
+       TEAM SECTION
+  ════════════════════════════════════════════ -->
+  <section id="team" class="section">
+    <div class="section-header">
+      <p class="section-eyebrow" data-i18n="team_eyebrow">The Researchers</p>
+      <h2 class="section-title" data-i18n="team_title">Meet the Team</h2>
+      <p class="section-desc" data-i18n="team_desc">
+        The dedicated researchers and students behind the IRML-CER3D project.
+      </p>
+    </div>
+
+    <div class="team-grid" id="team-grid" role="list">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <div class="gradient-divider"></div><!-- ═══════════════════════════════════════════
+       CONTACT SECTION
+  ════════════════════════════════════════════ -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <p class="section-eyebrow" data-i18n="contact_eyebrow">Get in Touch</p>
+      <h2 class="section-title" data-i18n="contact_title">Contact Us</h2>
+      <p class="section-desc" data-i18n="contact_desc">
+        Interested in collaboration or have questions about the modules? Reach out!
+      </p>
+    </div>
+
+    <div class="contact-grid animate-fade-up">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <!-- Email -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <p class="contact-label" data-i18n="contact_email">Email</p>
+            <p class="contact-value">
+              <a href="mailto:yadiel.cruz@upr.edu" id="contact-email-link">yadiel.cruz@upr.edu</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="contact-label" data-i18n="contact_github">GitHub</p>
+            <p class="contact-value">
+              <a href="https://github.com/YadielCruz/IRML-CER3D-module-code" target="_blank" rel="noopener" id="contact-github-link">
+                YadielCruz/IRML-CER3D-module-code
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Institution -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div>
+            <p class="contact-label" data-i18n="contact_institution">Institution</p>
+            <p class="contact-value" data-i18n="contact_institution_val">
+              Universidad de Puerto Rico en Cayey
+            </p>
+            <p class="contact-value" style="color: var(--text-muted); font-size: 0.82rem;" data-i18n="contact_dept">
+              Department of Chemistry
+            </p>
+          </div>
+        </div>
+
+        <!-- CER3D -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="contact-label">CER3D</p>
+            <p class="contact-value">
+              <a href="https://cer3d-cayey.com" target="_blank" rel="noopener" id="contact-cer3d-link">
+                cer3d-cayey.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form animate-fade-up animate-delay-2">
+        <h3 class="form-title" data-i18n="contact_form_title">Send a Message</h3>
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="form-name" data-i18n="form_name">Your Name</label>
+            <input
+              type="text"
+              id="form-name"
+              class="form-input"
+              data-i18n-placeholder="form_name"
+              placeholder="Your Name"
+              required
+              autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-email" data-i18n="form_email">Your Email</label>
+            <input
+              type="email"
+              id="form-email"
+              class="form-input"
+              data-i18n-placeholder="form_email"
+              placeholder="your@email.com"
+              required
+              autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-subject" data-i18n="form_subject">Subject</label>
+            <input
+              type="text"
+              id="form-subject"
+              class="form-input"
+              data-i18n-placeholder="form_subject"
+              placeholder="Subject"
+              required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-message" data-i18n="form_message">Message</label>
+            <textarea
+              id="form-message"
+              class="form-textarea"
+              data-i18n-placeholder="form_message"
+              placeholder="Message..."
+              required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="form-submit-btn" data-i18n="form_submit">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <div class="footer-brand">
+            <img src="assets/logo.jpeg" alt="IR-ML Lab Logo" class="footer-logo">
+            <span class="footer-title">IR-ML Lab — IRML-CER3D</span>
+          </div>
+          <p class="footer-desc" data-i18n="footer_desc">
+            Integrated Research in Machine Learning (IRML) — CER3D educational module project at Universidad de Puerto Rico en Cayey.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <p class="footer-links-title" data-i18n="footer_links">Quick Links</p>
+          <ul class="footer-links">
+            <li><a href="#modules" data-i18n="nav_modules">Modules</a></li>
+            <li><a href="#team" data-i18n="nav_team">Team</a></li>
+            
+            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <p class="footer-links-title" data-i18n="footer_resources">Resources</p>
+          <ul class="footer-links">
+            <li>
+              <a href="https://github.com/YadielCruz/IRML-CER3D-module-code" target="_blank" rel="noopener">
+                GitHub Repository
+              </a>
+            </li>
+            <li>
+              <a href="https://cer3d-cayey.com" target="_blank" rel="noopener">
+                CER3D Cayey
+              </a>
+            </li>
+            <li>
+              <a href="https://upr.edu" target="_blank" rel="noopener">
+                UPR Cayey
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy" data-i18n="footer_copy">
+          © 2025 Yadiel Cruz Ortiz · IR-ML Lab · UPR Cayey
+        </p>
+        <p class="footer-made" data-i18n="footer_made">// IRML-CER3D Project</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Scripts ─────────────────────────────── -->
+  <script src="data/modules.js"></script>
+  <script src="data/team.js"></script>
+  
+  <script src="main.js"></script>
+
+</body>
+</html>
