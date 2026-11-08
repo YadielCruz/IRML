@@ -16,8 +16,8 @@ const i18n = {
 
     // Hero
     hero_badge: "UPR Cayey · CER3D Project",
-    hero_title_line1: "Classification of Aqueous Solubility of Organic Compounds",
-    hero_title_line2: "through the Use of a K-Nearest Neighbors Machine Learning Model",
+    hero_title_line1: "Developing bilingual Machine Learning modules for undergraduate STEM students",
+    hero_title_line2: "through Aqueous Solubility modeling.",
     hero_subtitle: "Integrated educational modules combining infrared spectral analysis with modern machine learning techniques for the CER3D project at the University of Puerto Rico, Cayey.",
     hero_btn_modules: "Explore Modules",
     hero_btn_github: "View on GitHub",
@@ -98,8 +98,8 @@ const i18n = {
 
     // Hero
     hero_badge: "UPR Cayey · Proyecto CER3D",
-    hero_title_line1: "Clasificación de la Solubilidad Acuosa de Compuestos Orgánicos",
-    hero_title_line2: "mediante el uso de un modelo de Machine Learning K-Nearest Neighbors",
+    hero_title_line1: "Desarrollo de módulos bilingües de Machine Learning para estudiantes subgraduados de STEM",
+    hero_title_line2: "a través del modelado de Solubilidad Acuosa.",
     hero_subtitle: "Módulos educativos integrados que combinan análisis espectral infrarrojo con técnicas modernas de aprendizaje automático para el proyecto CER3D en la Universidad de Puerto Rico, Cayey.",
     hero_btn_modules: "Explorar Módulos",
     hero_btn_github: "Ver en GitHub",
