@@ -2,12 +2,12 @@ const modulesData = [
   {
     id: 1,
     title: {
-      en: "Classification of Aqueous Solubility of Organic Compounds through the Use of a K-Nearest Neighbors Machine Learning Model - Demo",
-      es: "Clasificación de la Solubilidad Acuosa de Compuestos Orgánicos mediante el uso de un modelo de Machine Learning K-Nearest Neighbors - Demo"
+      en: "Classification of Aqueous Solubility of Organic Compounds Using K-Nearest Neighbors",
+      es: "Clasificación de la Solubilidad Acuosa de Compuestos Orgánicos Usando K-Nearest Neighbors"
     },
     description: {
-      en: "Foundations of infrared spectroscopy combined with machine learning techniques. Learn how to preprocess IR spectra and apply basic classification models.",
-      es: "Fundamentos de espectroscopía infrarroja combinados con técnicas de aprendizaje automático. Aprende a preprocesar espectros IR y aplicar modelos de clasificación básicos."
+      en: "Explore molecular properties and machine learning fundamentals by training and evaluating a K-Nearest Neighbors (KNN) model to classify the aqueous solubility of organic compounds.",
+      es: "Explora propiedades moleculares y fundamentos de machine learning entrenando y evaluando un modelo K-Nearest Neighbors (KNN) para clasificar la solubilidad acuosa de compuestos orgánicos."
     },
     level: "Beginner",
     topics: ["IR Spectroscopy", "Machine Learning", "Data Preprocessing"],
