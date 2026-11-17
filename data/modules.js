@@ -10,7 +10,7 @@ const modulesData = [
       es: "Explora propiedades moleculares y fundamentos de machine learning entrenando y evaluando un modelo K-Nearest Neighbors (KNN) para clasificar la solubilidad acuosa de compuestos orgánicos."
     },
     level: "Beginner",
-    topics: ["IR Spectroscopy", "Machine Learning", "Data Preprocessing"],
+    topics: ["Machine Learning", "Data Preprocessing"],
     format: "Jupyter Notebook",
     author: "Yadiel Cruz Ortiz",
     githubUrl: "https://github.com/YadielCruz/IRML-CER3D-module-code/blob/main/Module_1.ipynb",
