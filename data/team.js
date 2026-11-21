@@ -62,5 +62,21 @@ const teamData = [
     github: "",
     email: "damian.ayala@upr.edu",
     isPI: false
+  },
+  {
+    id: 5,
+    name: "Adrián Rivas",
+    institution: "Universidad de Puerto Rico en Cayey",
+    department: { en: "Department of Natural Sciences", es: "Departamento de Ciencias Naturales" },
+    bio: {
+      en: "Adrián Rivas is currently in his third academic year of a Bachelor's degree in Natural Sciences at the University of Puerto Rico at Cayey. He has a strong interest in exploring how programming and artificial intelligence can be integrated into practical applications to solve organic chemistry problems, as well as the use of stochastic mathematical models to predict academic progress. He aspires to enter medical school and become a healthcare professional. Currently, he develops research projects combining his interests in Mathematics, Machine Learning, and Organic Chemistry.",
+      es: "Adrián Rivas cursa actualmente su tercer año académico en el bachillerato de Ciencias Naturales de la Universidad de Puerto Rico en Cayey. Tiene un gran interés en explorar cómo la programación y la inteligencia artificial pueden integrarse en aplicaciones prácticas para resolver problemas de química orgánica, así como el uso de modelos matemáticos estocásticos para modelar el progreso académico. Aspira a ingresar a una escuela de medicina y convertirse en profesional de la salud. Actualmente, desarrolla proyectos de investigación que combinan sus intereses en Matemáticas, Machine Learning y Química Orgánica."
+    },
+    initials: "AR",
+    color: "#3b82f6",
+    image: "assets/adrian-prof-pic.jpeg",
+    github: "",
+    email: "",
+    isPI: false
   }
 ];

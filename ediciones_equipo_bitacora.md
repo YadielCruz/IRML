@@ -18,6 +18,14 @@ Se reemplazaron los perfiles genéricos ("Researcher 2", "Researcher 3") por inf
 - **Biografía:** Se añadió la descripción detallada en español e inglés sobre su bachillerato en Química y su interés en bioquímica y farmacia.
 - **Imagen:** Se vinculó `assets/genesis-prof-pic.jpeg`.
 
+**Adrián Rivas (ID: 5)**
+- **Nombre:** "Adrián Rivas".
+- **Iniciales:** "AR".
+- **Departamento:** "Department of Natural Sciences" / "Departamento de Ciencias Naturales".
+- **Institución:** "Universidad de Puerto Rico en Cayey".
+- **Biografía:** Se añadió su biografía en inglés y español detallando su bachillerato en Ciencias Naturales, sus intereses en ML, química orgánica y modelos matemáticos estocásticos, así como sus metas en el campo de la salud.
+- **Imagen:** Se vinculó `assets/adrian-prof-pic.jpeg`.
+
 ### 2. Limpieza de la Interfaz ("Meet the Team")
 - **Eliminación de Roles:** Se eliminó la visualización del campo `role` en la sección del equipo para simplificar el diseño.
 - **Modificación en `main.js`:** Se implementó una validación defensiva en la función `renderTeam()`. Ahora el código verifica si el objeto `member.role` existe antes de intentar renderizarlo, evitando errores de "undefined" si un miembro no tiene rol asignado.
