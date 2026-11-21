@@ -13,7 +13,7 @@ const modulesData = [
     topics: ["Machine Learning", "Data Preprocessing"],
     format: "Jupyter Notebook",
     author: "Yadiel Cruz Ortiz",
-    githubUrl: "https://github.com/YadielCruz/IRML-CER3D-module-code/blob/main/Module_1.ipynb",
+    githubUrl: "https://github.com/YadielCruz/IRML-CER3D-module-code",
     status: { en: "Available", es: "Disponible" }
   },
   { id: 2, status: { en: "Coming Soon", es: "Próximamente" } },
